@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "webpack5-react-starter",
+  "version": "1.0.0",
+  "description": "Webpack 5 React Starter",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack"
+  },
+  "author": "Yan Logan",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
