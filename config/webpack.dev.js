@@ -9,5 +9,6 @@ module.exports = merge(common, {
 
   devServer: {
     static: buildPath,
+    hot: true,
   },
 });
