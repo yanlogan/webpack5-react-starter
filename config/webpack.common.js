@@ -1,4 +1,7 @@
 module.exports = {
+  output: {
+    publicPath: "/",
+  },
   module: {
     rules: [
       {
@@ -19,6 +22,13 @@ module.exports = {
           "postcss-loader",
           { loader: "sass-loader", options: { sourceMap: true } },
         ],
+      },
+      {
+        test: /\.(ico|jpe?g|png|gif|webp)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[hash][ext][query]",
+        },
       },
     ],
   },
