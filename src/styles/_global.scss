@@ -1,7 +1,32 @@
 @use "variables";
 
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Bold.eot');
+  src: url('../assets/fonts/Inter-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Inter-Bold.woff2') format('woff2'),
+    url('../assets/fonts/Inter-Bold.woff') format('woff'),
+    url('../assets/fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter-Regular.eot');
+  src: url('../assets/fonts/Inter-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Inter-Regular.woff2') format('woff2'),
+    url('../assets/fonts/Inter-Regular.woff') format('woff'),
+    url('../assets/fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
+  font-family: 'Inter', sans-serif;
   color: variables.$textColor;
   background-color: variables.$bgColor;
 }
