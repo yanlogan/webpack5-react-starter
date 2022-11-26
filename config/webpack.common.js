@@ -16,7 +16,7 @@ module.exports = {
       patterns: [
         {
           from: publicPath,
-          to: "/",
+          to: buildPath,
           globOptions: {
             ignore: ["*.DS_Store"],
           },
@@ -25,7 +25,7 @@ module.exports = {
       ],
     }),
     new FaviconsWebpackPlugin({
-      logo: srcPath + "/assets/logo.svg",
+      logo: srcPath + "/logo.svg",
       favicons: {
         appName: "Webpack 5 React Starter",
         appDescription: "Webpack 5 React Starter",
@@ -33,7 +33,9 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
+      title: "Webpack 5 React Starter",
       template: srcPath + "/index.html",
+      inject: "body",
     }),
   ],
   module: {
