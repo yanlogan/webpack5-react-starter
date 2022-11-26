@@ -1,7 +1,8 @@
-const { srcPath, buildPath } = require("./paths");
+const { srcPath, buildPath, publicPath } = require("./paths");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   output: {
@@ -13,13 +14,20 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: srcPath + "/assets",
-          to: "assets",
+          from: publicPath,
+          to: "/",
           globOptions: {
-            ignore: ["*.DS_Store", "**/icons/**"],
+            ignore: ["*.DS_Store"],
           },
+          noErrorOnMissing: true,
         },
       ],
+    }),
+    new FaviconsWebpackPlugin({
+      logo: srcPath + "/assets/logo.png", // svg works too!
+      favicons: {
+        theme_color: "#000",
+      },
     }),
     new HtmlWebpackPlugin({
       template: srcPath + "/index.html",
@@ -55,7 +63,10 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
-        type: "asset/inline",
+        type: "asset/resource",
+        generator: {
+          filename: "assets/fonts/[hash][ext][query]",
+        },
       },
       {
         test: /\.svg$/,
