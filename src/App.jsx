@@ -1,5 +1,9 @@
 const App = (props) => {
-  return <div>I'm working!</div>;
+  return (
+    <div>
+      <h1>I'm working!</h1>
+    </div>
+  );
 };
 
 export default App;
