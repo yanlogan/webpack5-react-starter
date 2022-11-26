@@ -16,7 +16,7 @@ module.exports = {
           from: srcPath + "/assets",
           to: "assets",
           globOptions: {
-            ignore: ["*.DS_Store"],
+            ignore: ["*.DS_Store", "**/icons/**"],
           },
         },
       ],
@@ -54,8 +54,13 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
+        test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: "asset/inline",
+      },
+      {
+        test: /\.svg$/,
+        include: /icons/,
+        use: [{ loader: "svg-sprite-loader" }, "svgo-loader"],
       },
     ],
   },
