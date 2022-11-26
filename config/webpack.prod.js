@@ -58,6 +58,7 @@ module.exports = merge(common, {
           },
         },
         generator: [
+          // obsolete if you decide to use responsive-loader
           {
             // You can apply generator using `?as=webp`
             preset: "webp",

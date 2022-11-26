@@ -61,10 +61,19 @@ module.exports = {
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/images/[hash][ext][query]",
-        },
+        use: [
+          {
+            // To generate webp use `?format=webp`
+            loader: "responsive-loader",
+            options: {
+              sizes: [430, 600, 900, 1280, 1920],
+              quality: 100,
+              placeholder: true,
+              placeholderSize: 20,
+              name: "assets/images/[hash]-[width].[ext]",
+            },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
