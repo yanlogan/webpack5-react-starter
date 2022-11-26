@@ -1,11 +1,14 @@
-const { srcPath } = require("./paths");
+const { srcPath, buildPath } = require("./paths");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   output: {
+    path: buildPath,
     publicPath: "/",
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: srcPath + "/index.html",
     }),
