@@ -24,7 +24,7 @@ module.exports = {
       ],
     }),
     new FaviconsWebpackPlugin({
-      logo: srcPath + "/assets/logo.png", // svg works too!
+      logo: srcPath + "/assets/logo.svg", // svg works too!
       favicons: {
         theme_color: "#000",
       },
