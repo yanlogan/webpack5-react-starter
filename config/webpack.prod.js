@@ -1,11 +1,18 @@
+const { buildPath } = require("./paths");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
 
+  output: {
+    path: buildPath,
+    publicPath: "/",
+    filename: "js/[name].[contenthash].bundle.js",
+  },
   devtool: false,
 
   plugins: [new MiniCssExtractPlugin()],
@@ -30,6 +37,7 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [
+      new TerserPlugin(),
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
