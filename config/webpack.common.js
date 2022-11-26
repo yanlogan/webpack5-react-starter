@@ -1,7 +1,15 @@
+const { srcPath } = require("./paths");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   output: {
     publicPath: "/",
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: srcPath + "/index.html",
+    }),
+  ],
   module: {
     rules: [
       {
