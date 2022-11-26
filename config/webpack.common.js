@@ -27,6 +27,8 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: srcPath + "/assets/logo.svg",
       favicons: {
+        appName: "Webpack 5 React Starter",
+        appDescription: "Webpack 5 React Starter",
         theme_color: "#000",
       },
     }),
