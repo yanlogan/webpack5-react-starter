@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   output: {
@@ -31,6 +32,10 @@ module.exports = {
         appDescription: "Webpack 5 React Starter",
         theme_color: "#000",
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles/[name].[contenthash].css",
+      chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
       title: "Webpack 5 React Starter",
@@ -61,6 +66,7 @@ module.exports = {
       },
       {
         test: /\.(ico|jpe?g|png|gif|webp)$/i,
+        type: "javascript/auto",
         use: [
           {
             // To generate webp use `?format=webp`
